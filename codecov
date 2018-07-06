@@ -196,7 +196,7 @@ urlencode() {
 
 
 swiftcov() {
-  _dir=$(dirname "$1" | sed 's/\(Build\).*/\1/g')
+  _dir=$(dirname "$1" | sed -e 's/\/ProfileData\/.*//')
   for _type in app framework xctest
   do
     find "$_dir" -name "*.$_type" | while read f
